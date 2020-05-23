@@ -35,7 +35,7 @@ ALTER TABLE laureat ADD CONSTRAINT laureat_pk PRIMARY KEY ( laureat_id );
 CREATE TABLE specialist (
     full_name           VARCHAR2(50) NOT NULL,
     sex                 VARCHAR2(10),
-    laureat_laureat_id  NUMBER NOT NULL,
+    laureat_id          NUMBER NOT NULL,
     city_of_death       VARCHAR2(50) NOT NULL,
     city_of_birth       VARCHAR2(50) NOT NULL,
     birth_date          DATE NOT NULL
@@ -86,7 +86,7 @@ ALTER TABLE specialist_speciality_fk
         REFERENCES specialist ( full_name );
 
 ALTER TABLE specialist
-    ADD CONSTRAINT specialist_laureat_fk FOREIGN KEY ( laureat_laureat_id )
+    ADD CONSTRAINT specialist_laureat_fk FOREIGN KEY ( laureat_id )
         REFERENCES laureat ( laureat_id );
 
 ALTER TABLE specialist_speciality_fk
