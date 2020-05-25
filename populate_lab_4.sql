@@ -1,70 +1,74 @@
-
-INSERT INTO Category(Category_name)
-VALUES('Chemistry');
-INSERT INTO Category(Category_name)
-VALUES('Literature');
-INSERT INTO Category(Category_name)
-VALUES('Medicine');
-INSERT INTO Category(Category_name)
-VALUES('Peace');
-INSERT INTO Category(Category_name)
-VALUES('Physics');
+INSERT INTO country(country_name)
+VALUES ('Germany');
+INSERT INTO country(country_name)
+VALUES ('Netherlands');
+INSERT INTO country(country_name)
+VALUES ('Russia');
 
 
-INSERT INTO Country(country_name)
-VALUES('Germany');
-INSERT INTO Country(country_name)
-VALUES('Netherlands');
-INSERT INTO Country(country_name)
-VALUES('Russia');
+INSERT INTO city(city_name, country_name)
+VALUES ('Berlin','Germany');
+INSERT INTO city(city_name, country_name)
+VALUES ('Leiden','Netherlands');
+INSERT INTO city(city_name, country_name)
+VALUES ('St. Petersburg','Russia');
 
 
-INSERT INTO City(city_name, country_name)
-VALUES('Berlin', 'Germany');
-INSERT INTO City(city_name, country_name)
-VALUES('Leiden', 'Netherlands');
-INSERT INTO City(city_name, country_name)
-VALUES('St. Petersburg', 'Russia');
-
-
-INSERT INTO Birth(birth_date)
-VALUES(TO_Date('1853-08-30', 'YYYY-MM-DD'));
-INSERT INTO Birth(birth_date)
-VALUES(TO_Date('1853-07-18', 'YYYY-MM-DD'));
-INSERT INTO Birth(birth_date)
-VALUES(TO_Date('1849-09-14', 'YYYY-MM-DD'));
-
-
-INSERT INTO Laureat(laureat_id, reward_year, category_name, city_of_org)
-VALUES(160, 1901, 'Chemistry', 'Berlin');
-INSERT INTO Laureat(laureat_id, reward_year, category_name, city_of_org)
-VALUES(2, 1902, 'Physics', 'Leiden');
-INSERT INTO Laureat(laureat_id, reward_year, category_name, city_of_org)
-VALUES(296, 1904, 'Medicine', 'St. Petersburg');
-
-
-INSERT INTO Specialist(full_name, sex, laureat_id, city_of_death, city_of_birth, birth_date)
-VALUES('Jacobus Henricus vant Hoff1', 'Male', 160, 'Berlin', 'Berlin', TO_Date('1849-09-14', 'YYYY-MM-DD'));
-INSERT INTO Specialist(full_name, sex, laureat_id, city_of_death, city_of_birth, birth_date)
-VALUES('Hendrik Antoon Lorentz', 'Male', 2, 'Leiden', 'Leiden', TO_Date('1853-07-18', 'YYYY-MM-DD'));
-INSERT INTO Specialist(full_name, sex, laureat_id, city_of_death, city_of_birth, birth_date)
-VALUES('Ivan Petrovich Pavlov', 'Male', 296, 'St. Petersburg', 'St. Petersburg', TO_Date('1849-09-14', 'YYYY-MM-DD'));
-
-
-INSERT INTO Speciality(SPECIALITY_NAME)
-VALUES ('Chemistry');
-INSERT INTO Speciality(SPECIALITY_NAME)
-VALUES ('Physics');
-INSERT INTO Speciality(SPECIALITY_NAME)
+INSERT INTO category(category_name)
 VALUES ('Medicine');
-INSERT INTO Speciality(SPECIALITY_NAME)
-VALUES ('Biology');
+INSERT INTO category(category_name)
+VALUES ('Physics');
+INSERT INTO category(category_name)
+VALUES ('Chemistry');
 
 
-INSERT INTO SPECIALIST_SPECIALITY_FK(FULL_NAME, SPECIALITY_NAME)
-VALUES ('Ivan Petrovich Pavlov', 'Medicine');
-INSERT INTO SPECIALIST_SPECIALITY_FK(FULL_NAME, SPECIALITY_NAME)
-VALUES ('Hendrik Antoon Lorentz', 'Physics');
-INSERT INTO SPECIALIST_SPECIALITY_FK(FULL_NAME, SPECIALITY_NAME)
+INSERT INTO birth(birth_date)
+VALUES (TO_DATE('1852-08-30', 'YYYY-MM-DD'));
+INSERT INTO birth(birth_date)
+VALUES (TO_DATE('1853-07-18', 'YYYY-MM-DD'));
+INSERT INTO birth(birth_date)
+VALUES (TO_DATE('1849-09-14', 'YYYY-MM-DD'));
+
+
+INSERT INTO year_of_award(reward_year) 
+VALUES (1901);
+INSERT INTO year_of_award(reward_year) 
+VALUES (1902);
+INSERT INTO year_of_award(reward_year) 
+VALUES (1904);
+
+
+INSERT INTO laureat(laureat_id, category_name, city_of_org, reward_year, birth_date) 
+VALUES (160, 'Chemistry', 'Berlin', 1901, TO_DATE('1852-08-30', 'YYYY-MM-DD'));
+INSERT INTO Laureat(laureat_id, category_name, city_of_org, reward_year, birth_date) 
+VALUES (2, 'Physics', 'Leiden', 1902, TO_DATE('1853-07-18', 'YYYY-MM-DD'));
+INSERT INTO Laureat(laureat_id, category_name, city_of_org, reward_year, birth_date) 
+VALUES (296, 'Medicine', 'St. Petersburg', 1904, TO_DATE('1849-09-14', 'YYYY-MM-DD'));
+
+
+INSERT INTO specialist(full_name, laureat_id, city_of_birth, city_of_death) 
+VALUES ('Jacobus Henricus vant Hoff1', 160, 'Berlin', 'Berlin');
+INSERT INTO specialist(full_name, laureat_id, city_of_birth, city_of_death) 
+VALUES ('Hendrik Antoon Lorentz', 2, 'Leiden', 'Leiden');
+INSERT INTO specialist(full_name, laureat_id, city_of_birth, city_of_death) 
+VALUES ('Ivan Petrovich Pavlov', 296, 'St. Petersburg', 'St. Petersburg');
+
+
+INSERT INTO speciality(speciality_name) 
+VALUES ('Medicine');
+INSERT INTO speciality(speciality_name) 
+VALUES ('Physics');
+INSERT INTO speciality(speciality_name) 
+VALUES ('Chemistry');
+INSERT INTO speciality(speciality_name) 
+VALUES ('Boilogy');
+
+
+INSERT INTO specialist_fk(full_name, speciality_name) 
 VALUES ('Jacobus Henricus vant Hoff1', 'Chemistry');
-
+INSERT INTO specialist_fk(full_name, speciality_name) 
+VALUES ('Hendrik Antoon Lorentz', 'Physics');
+INSERT INTO specialist_fk(full_name, speciality_name) 
+VALUES ('Ivan Petrovich Pavlov', 'Medicine');
+INSERT INTO specialist_fk(full_name, speciality_name) 
+VALUES ('Ivan Petrovich Pavlov', 'Boilogy');
